@@ -91,12 +91,22 @@ function resizeCanvas() {
 }
 
 function createStar() {
+  const roll = Math.random();
+  let r, da;
+  if (roll < 0.12) {
+    r  = Math.random() * 1.2 + 1.8;
+    da = (Math.random() - 0.5) * 0.010;
+  } else if (roll < 0.50) {
+    r  = Math.random() * 0.6 + 0.8;
+    da = (Math.random() - 0.5) * 0.005;
+  } else {
+    r  = Math.random() * 0.55 + 0.15;
+    da = (Math.random() - 0.5) * 0.003;
+  }
   return {
     x:  Math.random() * canvas.width,
     y:  Math.random() * canvas.height,
-    r:  Math.random() * 1.4 + 0.3,
-    a:  Math.random(),
-    da: (Math.random() - 0.5) * 0.004,
+    r, a: Math.random(), da,
     vx: (Math.random() - 0.5) * 0.08,
     vy: (Math.random() - 0.5) * 0.08,
   };
@@ -172,19 +182,33 @@ function renderPublications() {
 
   const labelMap = { journal: 'Journal', conference: 'Conference', preprint: 'Preprint' };
 
+  function getPubUrl(pub) {
+    if (pub.url) return pub.url;
+    if (pub.type === 'preprint') {
+      const m = pub.venue.match(/arXiv:(\d+\.\d+)/);
+      if (m) return 'https://arxiv.org/abs/' + m[1];
+    }
+    return null;
+  }
+
   container.innerHTML = groups.map(group => `
     <div class="pub-year-group" data-type="${group.type}">
       <div class="pub-year-label">${group.year}</div>
-      ${group.items.map(pub => `
+      ${group.items.map(pub => {
+        const url = getPubUrl(pub);
+        const titleEl = url
+          ? `<a href="${url}" target="_blank" rel="noopener" class="pub-title">${pub.title}</a>`
+          : `<p class="pub-title">${pub.title}</p>`;
+        return `
         <div class="pub-item fade-in" data-type="${pub.type}">
           <div class="pub-badge ${pub.type}">${labelMap[pub.type]}</div>
           <div class="pub-content">
-            <p class="pub-title">${pub.title}</p>
+            ${titleEl}
             <p class="pub-authors">${pub.authors}</p>
             <p class="pub-venue">${pub.venue}</p>
           </div>
-        </div>
-      `).join('')}
+        </div>`;
+      }).join('')}
     </div>
   `).join('');
 }
@@ -219,7 +243,7 @@ function renderMembers() {
 
       const cardsHtml = members.map(m => `
         <div class="member-card ${m.highlight ? 'member-card-highlight' : ''}">
-          <div class="member-avatar">${m.initials}</div>
+          <div class="member-avatar avatar-${sub.key}">${m.initials}</div>
           <div class="member-info">
             <p class="member-name">${m.name}</p>
             <p class="member-role">${m.role || sub.defaultRole}</p>

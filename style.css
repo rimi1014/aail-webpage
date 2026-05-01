@@ -8,6 +8,7 @@
   --blue-lt:   #7DC4E8;
   --gold:      #C8A86B;
   --gold-lt:   #E0C99A;
+  --gold-dk:   #7A5E25;
   --bg:        #F7F8FA;
   --bg-alt:    #EEF0F5;
   --white:     #FFFFFF;
@@ -81,7 +82,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-dk);
   margin-bottom: 12px;
 }
 .section-label.light { color: var(--gold-lt); }
@@ -185,9 +186,9 @@ img { max-width: 100%; display: block; }
 
 .nav-logo {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: var(--white);
-  letter-spacing: .04em;
+  letter-spacing: .18em;
 }
 
 .nav-links {
@@ -302,11 +303,12 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-cta .btn-outline {
-  color: var(--white);
-  border-color: rgba(255,255,255,.45);
+  color: var(--gold);
+  border-color: var(--gold);
 }
 .hero-cta .btn-outline:hover {
-  background: rgba(255,255,255,.12);
+  background: var(--gold);
+  color: var(--navy);
 }
 
 .scroll-hint {
@@ -333,7 +335,7 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 64px;
-  align-items: start;
+  align-items: center;
   margin-bottom: 56px;
 }
 
@@ -391,7 +393,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-dk);
   margin-bottom: 12px;
 }
 .pi-dept {
@@ -408,7 +410,7 @@ img { max-width: 100%; display: block; }
 }
 .pi-link:hover { color: var(--navy); }
 
-.about-text { padding-top: 8px; }
+.about-text { padding-top: 0; }
 .about-text p {
   color: var(--text-mid);
   margin-bottom: 16px;
@@ -459,16 +461,15 @@ img { max-width: 100%; display: block; }
   margin-bottom: 32px;
 }
 .research-icon {
-  width: 52px;
-  height: 52px;
-  background: linear-gradient(135deg, var(--navy), var(--blue));
-  border-radius: var(--radius);
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
+  color: var(--blue);
 }
-.research-icon svg { width: 24px; height: 24px; stroke: var(--white); }
+.research-icon svg { width: 40px; height: 40px; stroke: currentColor; }
 
 .research-col-header h3 {
   font-family: var(--font-serif);
@@ -563,9 +564,9 @@ img { max-width: 100%; display: block; }
 
 .pub-badge {
   flex-shrink: 0;
-  padding: 3px 10px;
+  padding: 4px 11px;
   border-radius: 999px;
-  font-size: .72rem;
+  font-size: .78rem;
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -593,6 +594,16 @@ img { max-width: 100%; display: block; }
   color: var(--text-lt);
   font-style: italic;
 }
+a.pub-title {
+  color: var(--text);
+  display: block;
+  font-size: .95rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 4px;
+  transition: color var(--transition);
+}
+a.pub-title:hover { color: var(--blue); text-decoration: underline; }
 
 .pub-more { text-align: center; margin-top: 48px; }
 
@@ -663,10 +674,9 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
   letter-spacing: .04em;
 }
-.member-card-highlight .member-avatar {
-  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
-  color: var(--navy);
-}
+.avatar-phd { background: linear-gradient(135deg, #0A1628, #1A3566); }
+.avatar-msc { background: linear-gradient(135deg, #1B6CA8, #4A9FD4); }
+.avatar-bsc { background: linear-gradient(135deg, #155147, #1E8A78); }
 
 .member-name {
   font-size: .9rem;
@@ -722,7 +732,7 @@ img { max-width: 100%; display: block; }
 .news-month {
   font-size: .75rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--gold-dk);
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -786,6 +796,11 @@ img { max-width: 100%; display: block; }
   padding: 32px 28px;
   text-align: center;
   transition: var(--transition);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .contact-card:hover {
   background: rgba(255,255,255,.12);
@@ -840,7 +855,7 @@ img { max-width: 100%; display: block; }
   color: rgba(255,255,255,.65);
   font-size: .95rem;
   max-width: 520px;
-  margin: 0 auto;
+  margin: 0 auto 28px;
 }
 
 /* ── FOOTER ───────────────────────────────────────────────────── */
