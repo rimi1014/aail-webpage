@@ -8,6 +8,8 @@
 //    title   : 논문 제목
 //    authors : 저자 목록 (약식)
 //    venue   : 학술지/학회명. 학술지명은 <em>태그</em>로 감싸기.
+//    url     : (선택) 논문 링크. DOI 예시: "https://doi.org/10.1109/TAC.2017.XXXXXXX"
+//              입력 안 하면 Google Scholar 검색으로 자동 연결됨.
 //
 //  ⚠️  최신 논문이 위에 오도록 추가하세요.
 // ══════════════════════════════════════════════════════════════
@@ -160,12 +162,14 @@ const PUBLICATIONS = [
   { type: "conference", year: "2025",
     title: "Data-Driven Hamiltonian for Direct Construction of Safe Set from Trajectory Data",
     authors: "J. J. Choi, C. A. Strong, K. Sreenath, N. Cho, C. J. Tomlin",
-    venue: "64th IEEE Conference on Decision and Control, Rio de Janeiro, Brazil" },
+    venue: "64th IEEE Conference on Decision and Control, Rio de Janeiro, Brazil",
+    url: "https://arxiv.org/abs/2504.03233" },
 
   { type: "conference", year: "2024",
     title: "A Passivity-Based Method for Accelerated Convex Optimisation",
     authors: "N. Cho, H.-S. Shin",
-    venue: "63rd IEEE Conference on Decision and Control, Milan, Italy" },
+    venue: "63rd IEEE Conference on Decision and Control, Milan, Italy",
+    url: "https://arxiv.org/abs/2306.11474" },
 
   { type: "conference", year: "2024",
     title: "Π-ORFit: One-Pass Learning with Bregman Projection",

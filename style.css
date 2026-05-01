@@ -402,6 +402,12 @@ img { max-width: 100%; display: block; }
   line-height: 1.5;
   margin-bottom: 20px;
 }
+.pi-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
 .pi-link {
   font-size: .875rem;
   font-weight: 600;

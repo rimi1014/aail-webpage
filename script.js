@@ -82,7 +82,7 @@ hamburger.addEventListener('click', () => {
 const canvas = document.getElementById('hero-canvas');
 const ctx    = canvas.getContext('2d');
 const stars  = [];
-const STAR_COUNT = 140;
+const STAR_COUNT = 200;
 let animFrameId;
 
 function resizeCanvas() {
@@ -132,20 +132,53 @@ function drawCanvas() {
     if (s.y < 0) s.y = canvas.height;
     if (s.y > canvas.height) s.y = 0;
 
+    // Glow halo for larger stars
+    if (s.r > 1.4) {
+      const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 5);
+      glow.addColorStop(0, `rgba(255,255,255,${s.a * 0.22})`);
+      glow.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r * 5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Core dot
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(255,255,255,${s.a})`;
     ctx.fill();
+
+    // Cross sparkle for the brightest large stars
+    if (s.r > 2.2) {
+      ctx.strokeStyle = `rgba(255,255,255,${s.a * 0.5})`;
+      ctx.lineWidth = 0.5;
+      const len = s.r * 4;
+      ctx.beginPath();
+      ctx.moveTo(s.x - len, s.y); ctx.lineTo(s.x + len, s.y);
+      ctx.moveTo(s.x, s.y - len); ctx.lineTo(s.x, s.y + len);
+      ctx.stroke();
+    }
   });
 
-  // Accent glow — top-right corner
+  // Accent glow — top-right (blue)
   const grd = ctx.createRadialGradient(
     canvas.width * 0.85, canvas.height * 0.15, 0,
-    canvas.width * 0.85, canvas.height * 0.15, canvas.width * 0.4
+    canvas.width * 0.85, canvas.height * 0.15, canvas.width * 0.45
   );
-  grd.addColorStop(0, 'rgba(74,159,212,0.12)');
+  grd.addColorStop(0, 'rgba(74,159,212,0.18)');
   grd.addColorStop(1, 'rgba(74,159,212,0)');
   ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Accent glow — bottom-left (warm gold)
+  const grd2 = ctx.createRadialGradient(
+    canvas.width * 0.12, canvas.height * 0.88, 0,
+    canvas.width * 0.12, canvas.height * 0.88, canvas.width * 0.38
+  );
+  grd2.addColorStop(0, 'rgba(200,168,107,0.10)');
+  grd2.addColorStop(1, 'rgba(200,168,107,0)');
+  ctx.fillStyle = grd2;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   animFrameId = requestAnimationFrame(drawCanvas);
@@ -184,11 +217,9 @@ function renderPublications() {
 
   function getPubUrl(pub) {
     if (pub.url) return pub.url;
-    if (pub.type === 'preprint') {
-      const m = pub.venue.match(/arXiv:(\d+\.\d+)/);
-      if (m) return 'https://arxiv.org/abs/' + m[1];
-    }
-    return null;
+    const arxiv = pub.venue.match(/arXiv:(\d+\.\d+)/);
+    if (arxiv) return 'https://arxiv.org/abs/' + arxiv[1];
+    return 'https://scholar.google.com/scholar?q=' + encodeURIComponent(pub.title);
   }
 
   container.innerHTML = groups.map(group => `
