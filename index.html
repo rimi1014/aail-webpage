@@ -63,7 +63,14 @@
     <div class="page" id="page-about">
       <section class="section">
         <div class="container">
-          <div class="section-label">About</div>
+          <div class="section-header fade-in">
+            <div class="section-num">01</div>
+            <div class="section-header-text">
+              <span class="section-kicker">About</span>
+              <h2 class="section-title">Our Team &amp; Mission</h2>
+            </div>
+            <div class="section-header-line"></div>
+          </div>
           <div class="about-grid">
             <div class="about-pi fade-in">
               <div class="pi-avatar">
@@ -114,20 +121,28 @@
     <div class="page" id="page-research">
       <section class="section section-alt">
         <div class="container">
-          <div class="section-label">Research</div>
-          <h2 class="section-title centered fade-in">What We Work On</h2>
-          <p class="section-desc centered fade-in">Our research spans the theory and application of intelligent autonomous systems.</p>
+          <div class="section-header fade-in">
+            <div class="section-num">02</div>
+            <div class="section-header-text">
+              <span class="section-kicker">Research</span>
+              <h2 class="section-title">What We Work On</h2>
+            </div>
+            <div class="section-header-line"></div>
+          </div>
+          <p class="section-desc fade-in">Our research spans the theory and application of intelligent autonomous systems.</p>
 
-          <div class="research-columns">
-            <div class="research-col fade-in">
-              <div class="research-col-header">
-                <div class="research-icon">
+          <div class="research-cards">
+            <div class="research-card fade-in" data-delay="0">
+              <div class="research-card-header">
+                <div class="research-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                   </svg>
                 </div>
-                <h3>Theory</h3>
-                <p class="col-sub">Foundations of Control &amp; Learning</p>
+                <div>
+                  <h3 class="research-card-title">Theory</h3>
+                  <p class="col-sub">Foundations of Control &amp; Learning</p>
+                </div>
               </div>
               <ul class="research-list">
                 <li>
@@ -175,17 +190,17 @@
               </ul>
             </div>
 
-            <div class="research-divider"></div>
-
-            <div class="research-col fade-in">
-              <div class="research-col-header">
-                <div class="research-icon">
+            <div class="research-card fade-in" data-delay="1">
+              <div class="research-card-header">
+                <div class="research-card-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                   </svg>
                 </div>
-                <h3>Applications</h3>
-                <p class="col-sub">Aerospace &amp; Robotics</p>
+                <div>
+                  <h3 class="research-card-title">Applications</h3>
+                  <p class="col-sub">Aerospace &amp; Robotics</p>
+                </div>
               </div>
               <ul class="research-list">
                 <li>
@@ -234,8 +249,14 @@
     <div class="page" id="page-publications">
       <section class="section">
         <div class="container">
-          <div class="section-label">Publications</div>
-          <h2 class="section-title centered fade-in">Selected Works</h2>
+          <div class="section-header fade-in">
+            <div class="section-num">03</div>
+            <div class="section-header-text">
+              <span class="section-kicker">Publications</span>
+              <h2 class="section-title">Selected Works</h2>
+            </div>
+            <div class="section-header-line"></div>
+          </div>
 
           <div class="pub-tabs fade-in">
             <button class="pub-tab active" data-filter="all">All</button>
@@ -259,8 +280,14 @@
     <div class="page" id="page-members">
       <section class="section section-alt">
         <div class="container">
-          <div class="section-label">People</div>
-          <h2 class="section-title centered fade-in">Lab Members</h2>
+          <div class="section-header fade-in">
+            <div class="section-num">04</div>
+            <div class="section-header-text">
+              <span class="section-kicker">People</span>
+              <h2 class="section-title">Lab Members</h2>
+            </div>
+            <div class="section-header-line"></div>
+          </div>
 
           <!-- data/members.js 에서 자동으로 채워집니다 -->
           <div id="members-container"></div>
@@ -272,8 +299,14 @@
     <div class="page" id="page-news">
       <section class="section">
         <div class="container container-narrow">
-          <div class="section-label">News</div>
-          <h2 class="section-title centered fade-in">Latest Updates</h2>
+          <div class="section-header fade-in">
+            <div class="section-num">05</div>
+            <div class="section-header-text">
+              <span class="section-kicker">News</span>
+              <h2 class="section-title">Latest Updates</h2>
+            </div>
+            <div class="section-header-line"></div>
+          </div>
 
           <!-- data/news.js 에서 자동으로 채워집니다 -->
           <div class="news-timeline" id="news-timeline"></div>
@@ -285,8 +318,14 @@
     <div class="page" id="page-contact">
       <section class="section section-dark">
         <div class="container">
-          <div class="section-label light">Contact</div>
-          <h2 class="section-title centered light fade-in">Find Us</h2>
+          <div class="section-header fade-in">
+            <div class="section-num">06</div>
+            <div class="section-header-text">
+              <span class="section-kicker">Contact</span>
+              <h2 class="section-title light">Find Us</h2>
+            </div>
+            <div class="section-header-line"></div>
+          </div>
 
           <div class="contact-grid">
             <div class="contact-card fade-in">
@@ -355,6 +394,12 @@
       </div>
     </div>
   </footer>
+
+  <button class="go-top" id="go-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
 
   <script src="data/members.js"></script>
   <script src="data/publications.js"></script>

@@ -33,6 +33,7 @@ function switchPage(targetId, pushHistory) {
     el.classList.remove('visible');
     setTimeout(() => el.classList.add('visible'), i * 70);
   });
+  setTimeout(() => observeFadeIns(target), 50);
 
   // Resize hero canvas when returning to home
   if (targetId === 'page-home') {
@@ -69,6 +70,34 @@ window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   }
 }, { passive: true });
+
+// ── SCROLL-TRIGGERED ANIMATIONS ─────────────────────────────
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const delay = (parseInt(el.dataset.delay) || 0) * 120;
+      setTimeout(() => el.classList.add('visible'), delay);
+      scrollObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+function observeFadeIns(root) {
+  root.querySelectorAll('.fade-in').forEach(el => {
+    if (!el.classList.contains('visible')) scrollObserver.observe(el);
+  });
+}
+observeFadeIns(document.querySelector('.page.active') || document.body);
+
+// ── GO TO TOP ────────────────────────────────────────────────
+const goTopBtn = document.getElementById('go-top');
+window.addEventListener('scroll', () => {
+  goTopBtn.classList.toggle('visible', window.scrollY > 200);
+}, { passive: true });
+goTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 // ── HAMBURGER MENU ──────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
@@ -272,16 +301,32 @@ function renderMembers() {
       const members = groupData[sub.key];
       if (!members || members.length === 0) return '';
 
-      const cardsHtml = members.map(m => `
-        <div class="member-card ${m.highlight ? 'member-card-highlight' : ''}">
-          <div class="member-avatar avatar-${sub.key}">${m.initials}</div>
-          <div class="member-info">
-            <p class="member-name">${m.name}</p>
-            <p class="member-role">${m.role || sub.defaultRole}</p>
-            ${m.note ? `<p class="member-note">${m.note}</p>` : ''}
+      const cardsHtml = members.map(m => {
+        const hasPhoto = !!m.photo;
+        const photoHtml = hasPhoto
+          ? `<img src="${m.photo}" alt="${m.name}" class="member-photo"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />`
+          : '';
+        const avatarStyle = hasPhoto ? ' style="display:none"' : '';
+        const interestsHtml = (m.interests && m.interests.length > 0)
+          ? `<div class="member-interests">${m.interests.map(i =>
+              `<span class="member-interest-tag">${i}</span>`).join('')}</div>`
+          : '';
+        return `
+          <div class="member-card ${m.highlight ? 'member-card-highlight' : ''}">
+            <div class="member-photo-wrap">
+              ${photoHtml}
+              <div class="member-avatar avatar-${sub.key}"${avatarStyle}>${m.initials}</div>
+            </div>
+            <div class="member-info">
+              <p class="member-name">${m.name}</p>
+              <p class="member-role">${m.role || sub.defaultRole}</p>
+              ${m.note ? `<p class="member-note">${m.note}</p>` : ''}
+              ${interestsHtml}
+            </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
 
       return `
         <div class="members-subgroup">
