@@ -8,10 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Open Graph (링크 미리보기 썸네일) -->
   <meta property="og:title" content="AAIL:Aerospace Autonomy and Intelligence Laboratory" />
   <meta property="og:description" content="Research group at Seoul National University's Department of Aerospace Engineering, led by Professor Namhoon Cho." />
-  <meta property="og:image" content="https://rimi1014.github.io/aail-webpage/og-image.png" />
+  <meta property="og:image" content="https://rimi1014.github.io/aail-webpage/images/og-image.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rimi1014.github.io/aail-webpage/" />
 </head>
@@ -25,12 +24,49 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#" class="nav-tab" data-target="page-about">About</a></li>
-        <li><a href="#" class="nav-tab" data-target="page-research">Research</a></li>
-        <li><a href="#" class="nav-tab" data-target="page-publications">Publications</a></li>
-        <li><a href="#" class="nav-tab" data-target="page-members">Members</a></li>
-        <li><a href="#" class="nav-tab" data-target="page-news">News</a></li>
-        <li><a href="#" class="nav-tab" data-target="page-contact">Contact</a></li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-tab" data-target="page-about">About</a>
+          <ul class="nav-dropdown">
+            <li><a href="#" class="nav-tab" data-target="page-about">About AAIL</a></li>
+            <li><a href="#" class="nav-tab" data-target="page-contact">Join the Lab</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-tab" data-target="page-research">Research</a>
+          <ul class="nav-dropdown">
+            <li><a href="#" class="nav-tab" data-target="page-research">Research Topics</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-tab" data-target="page-members">Members</a>
+          <ul class="nav-dropdown">
+            <li><a href="#" class="member-subtab" data-subtab="pi">Principal Investigator</a></li>
+            <li><a href="#" class="member-subtab" data-subtab="students">Students</a></li>
+            <li><a href="#" class="member-subtab" data-subtab="alumni">Alumni</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-tab" data-target="page-publications">Publications</a>
+          <ul class="nav-dropdown">
+            <li><a href="#" class="pub-filtertab" data-filter="journal">Journal</a></li>
+            <li><a href="#" class="pub-filtertab" data-filter="conference">Conference</a></li>
+            <li><a href="#" class="pub-filtertab" data-filter="preprint">Preprint</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-tab" data-target="page-board">Board</a>
+          <ul class="nav-dropdown">
+            <li><a href="#" class="board-subtab" data-subtab="news">News</a></li>
+            <li><a href="#" class="board-subtab" data-subtab="gallery">Gallery</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#" class="nav-tab" data-target="page-contact">Contact</a>
+          <ul class="nav-dropdown">
+            <li><a href="#" class="nav-tab" data-target="page-contact">Contact AAIL</a></li>
+            <li><a href="mailto:namhoon.cho@snu.ac.kr" class="nav-dropdown-email">namhoon.cho@snu.ac.kr</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>
@@ -40,24 +76,105 @@
 
     <!-- HOME ──────────────────────────────────────────────── -->
     <div class="page active" id="page-home">
+
+      <!-- Hero -->
       <div id="hero">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
           <p class="hero-eyebrow">Seoul National University</p>
           <h1 class="hero-title">Aerospace Autonomy &amp;<br />Intelligence Laboratory</h1>
           <p class="hero-sub">AAIL &nbsp;|&nbsp; Department of Aerospace Engineering</p>
+          <p class="hero-statement">Safe and Efficient Aerospace Systems under Uncertainty</p>
+          <div class="hero-tags">
+            <span class="hero-tag">Control</span>
+            <span class="hero-tag">Optimization</span>
+            <span class="hero-tag">Machine Learning</span>
+            <span class="hero-tag">Guidance &amp; Control</span>
+            <span class="hero-tag">Aerospace Autonomy</span>
+          </div>
           <div class="hero-cta">
             <a href="#" class="btn btn-primary nav-tab" data-target="page-research">Our Research</a>
             <a href="#" class="btn btn-outline nav-tab" data-target="page-contact">Join the Lab</a>
           </div>
         </div>
-        <a href="#" class="scroll-hint nav-tab" data-target="page-about" aria-label="Go to About">
+        <button class="scroll-hint" id="hero-scroll-hint" aria-label="Scroll down">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
-        </a>
+        </button>
       </div>
-    </div>
+
+      <!-- Teaser: Research -->
+      <section class="section teaser-section">
+        <div class="container">
+          <div class="teaser-header">
+            <div>
+              <span class="section-kicker">Research</span>
+              <h2 class="teaser-title">What We Work On</h2>
+            </div>
+            <a href="#" class="btn btn-outline nav-tab" data-target="page-research">View All Research →</a>
+          </div>
+          <div class="research-areas">
+            <div class="research-area-card">
+              <h3 class="research-area-title">Safe Control under Uncertainty</h3>
+              <p class="research-area-desc">Developing provably safe control algorithms that remain stable and reliable under model uncertainty and disturbances.</p>
+              <div class="research-area-tags">
+                <span class="research-area-tag">CBF</span>
+                <span class="research-area-tag">Robust Control</span>
+                <span class="research-area-tag">Safety Guarantees</span>
+              </div>
+            </div>
+            <div class="research-area-card">
+              <h3 class="research-area-title">Learning-Based Guidance and Control</h3>
+              <p class="research-area-desc">Integrating machine learning with classical control for adaptive, intelligent guidance in aerospace applications.</p>
+              <div class="research-area-tags">
+                <span class="research-area-tag">Adaptive Control</span>
+                <span class="research-area-tag">Meta-Learning</span>
+                <span class="research-area-tag">Neural Control</span>
+              </div>
+            </div>
+            <div class="research-area-card">
+              <h3 class="research-area-title">Optimization for Aerospace Systems</h3>
+              <p class="research-area-desc">Formulating and solving optimal control and trajectory planning problems for complex aerospace missions.</p>
+              <div class="research-area-tags">
+                <span class="research-area-tag">Optimal Control</span>
+                <span class="research-area-tag">Trajectory Optimization</span>
+                <span class="research-area-tag">NLP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Teaser: Recent Publications -->
+      <section class="section section-alt teaser-section">
+        <div class="container">
+          <div class="teaser-header">
+            <div>
+              <span class="section-kicker">Publications</span>
+              <h2 class="teaser-title">Recent Work</h2>
+            </div>
+            <a href="#" class="btn btn-outline nav-tab" data-target="page-publications">View All Publications →</a>
+          </div>
+          <div id="pub-teaser"></div>
+        </div>
+      </section>
+
+      <!-- Teaser: News -->
+      <section class="section teaser-section">
+        <div class="container">
+          <div class="teaser-header">
+            <div>
+              <span class="section-kicker">News</span>
+              <h2 class="teaser-title">Latest Updates</h2>
+            </div>
+            <a href="#" class="btn btn-outline nav-tab" data-target="page-board">View All News →</a>
+          </div>
+          <div id="news-teaser"></div>
+        </div>
+      </section>
+
+    </div><!-- /page-home -->
 
     <!-- ABOUT ─────────────────────────────────────────────── -->
     <div class="page" id="page-about">
@@ -67,42 +184,20 @@
             <div class="section-num">01</div>
             <div class="section-header-text">
               <span class="section-kicker">About</span>
-              <h2 class="section-title">Our Team &amp; Mission</h2>
+              <h2 class="section-title">About AAIL</h2>
             </div>
             <div class="section-header-line"></div>
           </div>
-          <div class="about-grid">
-            <div class="about-pi fade-in">
-              <div class="pi-avatar">
-                <img
-                  src="http://aail.snu.ac.kr/Images/2023%20-%20Namhoon%20Cho.jpg"
-                  alt="Professor Namhoon Cho"
-                  class="pi-photo"
-                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                />
-                <div class="pi-avatar-initials">NC</div>
-              </div>
-              <div class="pi-info">
-                <h2 class="pi-name">Namhoon Cho</h2>
-                <p class="pi-title">Principal Investigator</p>
-                <p class="pi-dept">Department of Aerospace Engineering<br />Seoul National University</p>
-                <div class="pi-links">
-                  <a href="http://aail.snu.ac.kr/ncho.html" target="_blank" class="pi-link">Faculty Page ↗</a>
-                  <a href="mailto:namhoon.cho@snu.ac.kr" class="pi-link">namhoon.cho@snu.ac.kr</a>
-                </div>
-              </div>
-            </div>
-            <div class="about-text fade-in">
-              <h2 class="section-title">Intelligent Systems for the Future of Aerospace</h2>
-              <p>The <strong>Aerospace Autonomy and Intelligence Laboratory (AAIL)</strong> is a research group within the Department of Aerospace Engineering at Seoul National University, led by Professor Namhoon Cho.</p>
-              <p>We develop the theoretical foundations and practical algorithms for autonomous aerospace systems — spanning guidance &amp; control, machine learning, and intelligent decision-making. Our work bridges mathematical rigor with real-world aerospace engineering challenges.</p>
-              <div class="about-tags">
-                <span class="tag">Control Theory</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Autonomous Systems</span>
-                <span class="tag">Aerospace Engineering</span>
-                <span class="tag">Optimization</span>
-              </div>
+          <div class="about-text fade-in">
+            <h2 class="about-subtitle">Intelligent Systems for the Future of Aerospace</h2>
+            <p>The <strong>Aerospace Autonomy and Intelligence Laboratory (AAIL)</strong> is a research group within the Department of Aerospace Engineering at Seoul National University, led by Professor Namhoon Cho.</p>
+            <p>We develop the theoretical foundations and practical algorithms for autonomous aerospace systems — spanning guidance &amp; control, machine learning, and intelligent decision-making. Our work bridges mathematical rigor with real-world aerospace engineering challenges.</p>
+            <div class="about-tags">
+              <span class="tag">Control Theory</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Autonomous Systems</span>
+              <span class="tag">Aerospace Engineering</span>
+              <span class="tag">Optimization</span>
             </div>
           </div>
 
@@ -119,128 +214,113 @@
 
     <!-- RESEARCH ───────────────────────────────────────────── -->
     <div class="page" id="page-research">
+      <div id="research-overview">
+        <section class="section section-alt research-header-section">
+          <div class="container">
+            <div class="section-header fade-in">
+              <div class="section-num">02</div>
+              <div class="section-header-text">
+                <span class="section-kicker">Research</span>
+                <h2 class="section-title">What We Work On</h2>
+              </div>
+              <div class="section-header-line"></div>
+            </div>
+            <p class="section-desc fade-in">Our research spans the theory and application of intelligent autonomous systems in aerospace.</p>
+          </div>
+        </section>
+        <div class="research-img-grid" id="research-img-grid"></div>
+      </div>
+      <div id="research-detail-view" style="display:none"></div>
+    </div>
+
+    <!-- MEMBERS ────────────────────────────────────────────── -->
+    <div class="page" id="page-members">
       <section class="section section-alt">
         <div class="container">
           <div class="section-header fade-in">
-            <div class="section-num">02</div>
             <div class="section-header-text">
-              <span class="section-kicker">Research</span>
-              <h2 class="section-title">What We Work On</h2>
+              <span class="section-kicker">People</span>
+              <h2 class="section-title">Lab Members</h2>
             </div>
             <div class="section-header-line"></div>
           </div>
-          <p class="section-desc fade-in">Our research spans the theory and application of intelligent autonomous systems.</p>
 
-          <div class="research-cards">
-            <div class="research-card fade-in" data-delay="0">
-              <div class="research-card-header">
-                <div class="research-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
+          <!-- Internal sub-tabs -->
+          <div class="member-tabs fade-in">
+            <button class="member-tab active" data-panel="pi">Principal Investigator</button>
+            <button class="member-tab" data-panel="students">Students</button>
+            <button class="member-tab" data-panel="alumni">Alumni</button>
+          </div>
+
+          <!-- Panel: PI -->
+          <div class="member-panel active" id="panel-pi">
+            <div class="pi-profile fade-in">
+              <div class="pi-profile-card">
+                <div class="pi-avatar">
+                  <img
+                    src="images/ncho.jpg"
+                    alt="Prof. Namhoon Cho"
+                    class="pi-photo"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                  />
+                  <div class="pi-avatar-initials">NC</div>
                 </div>
-                <div>
-                  <h3 class="research-card-title">Theory</h3>
-                  <p class="col-sub">Foundations of Control &amp; Learning</p>
+                <h2 class="pi-name">Namhoon Cho</h2>
+                <p class="pi-title">Principal Investigator</p>
+                <p class="pi-dept">Assistant Professor<br />Department of Aerospace Engineering<br />Seoul National University</p>
+                <div class="pi-links">
+                  <a href="http://aail.snu.ac.kr/ncho.html" target="_blank" class="pi-link">Faculty Page ↗</a>
+                  <a href="mailto:namhoon.cho@snu.ac.kr" class="pi-link">namhoon.cho@snu.ac.kr</a>
                 </div>
               </div>
-              <ul class="research-list">
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Concurrent Model Learning &amp; Adaptive Control</strong>
-                    <p>Methods that simultaneously learn system models while adapting control strategies.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Safe Control and Learning</strong>
-                    <p>Algorithms with provable safety guarantees during control and learning.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Control-Inspired Optimisation</strong>
-                    <p>Applying control theory principles to enhance optimization methods.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Scientific Machine Learning for Control</strong>
-                    <p>Neural network architectures incorporating domain knowledge from control theory.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Meta-Learning for Control</strong>
-                    <p>Enabling systems to learn how to learn control strategies across problems.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Automatic Optimisation of Closed-Loop Systems</strong>
-                    <p>Automating the tuning and optimization of feedback control systems.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="research-card fade-in" data-delay="1">
-              <div class="research-card-header">
-                <div class="research-card-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  </svg>
+              <div class="pi-bio">
+                <div class="pi-bio-block">
+                  <h4 class="pi-bio-heading">Current Position</h4>
+                  <p>Assistant Professor, Department of Aerospace Engineering, Seoul National University. Affiliated with the Artificial Intelligence Institute and Institute of Advanced Aerospace Technology.</p>
                 </div>
-                <div>
-                  <h3 class="research-card-title">Applications</h3>
-                  <p class="col-sub">Aerospace &amp; Robotics</p>
+                <div class="pi-bio-block">
+                  <h4 class="pi-bio-heading">Research Focus</h4>
+                  <p>Control-theoretic design of optimisation algorithms, robust adaptive control with online model learning, data-driven safe control frameworks, learning-enabled control with safety assurance, and automated control engineering.</p>
+                </div>
+                <div class="pi-bio-block">
+                  <h4 class="pi-bio-heading">Professional Experience</h4>
+                  <ul class="pi-bio-list">
+                    <li>Lecturer in Control and Optimisation, Cranfield University (2024–2025)</li>
+                    <li>Research Fellow (75th Anniversary Fellowship), Cranfield University (2021–2024)</li>
+                    <li>Senior Researcher, Agency for Defense Development (2019–2020)</li>
+                    <li>Postdoctoral Fellow, Seoul National University (2017–2019)</li>
+                  </ul>
+                </div>
+                <div class="pi-bio-block">
+                  <h4 class="pi-bio-heading">Education</h4>
+                  <ul class="pi-bio-list">
+                    <li>PhD, Mechanical and Aerospace Engineering, Seoul National University (2012–2017)<br /><span class="pi-bio-note">Dissertation: Nonlinear Guidance Law for 3D Path-Following Using Differential Geometry</span></li>
+                    <li>BSc, Mechanical and Aerospace Engineering, Seoul National University (2009–2012)</li>
+                  </ul>
+                </div>
+                <div class="pi-bio-block">
+                  <h4 class="pi-bio-heading">Honors &amp; Awards</h4>
+                  <ul class="pi-bio-list">
+                    <li>Fellow of Advance HE (2025)</li>
+                    <li>Cranfield University 75th Anniversary Fellowship</li>
+                    <li>Outstanding Doctoral Dissertation Award, Seoul National University (2017)</li>
+                    <li>Summa Cum Laude, Seoul National University (2012)</li>
+                  </ul>
                 </div>
               </div>
-              <ul class="research-list">
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Guidance, Navigation, and Control (GNC)</strong>
-                    <p>Integrated systems for autonomous vehicle navigation and maneuvering.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Trajectory Planning</strong>
-                    <p>Computing feasible and optimal paths for autonomous aerospace systems.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Reachability Analysis</strong>
-                    <p>Determining which states are achievable under given safety constraints.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Policy Optimisation</strong>
-                    <p>Improving decision-making policies for autonomous systems.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="research-bullet"></span>
-                  <div>
-                    <strong>Parameter &amp; State Estimation</strong>
-                    <p>Inferring unknown system properties and current states from measurements.</p>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
+
+          <!-- Panel: Students (data/members.js snu group) -->
+          <div class="member-panel" id="panel-students">
+            <div id="students-container"></div>
+          </div>
+
+          <!-- Panel: Alumni (data/members.js cranfield group) -->
+          <div class="member-panel" id="panel-alumni">
+            <div id="alumni-container"></div>
+          </div>
+
         </div>
       </section>
     </div>
@@ -250,7 +330,7 @@
       <section class="section">
         <div class="container">
           <div class="section-header fade-in">
-            <div class="section-num">03</div>
+            <div class="section-num">04</div>
             <div class="section-header-text">
               <span class="section-kicker">Publications</span>
               <h2 class="section-title">Selected Works</h2>
@@ -276,40 +356,32 @@
       </section>
     </div>
 
-    <!-- MEMBERS ────────────────────────────────────────────── -->
-    <div class="page" id="page-members">
-      <section class="section section-alt">
+    <!-- BOARD ──────────────────────────────────────────────── -->
+    <div class="page" id="page-board">
+      <section class="section">
         <div class="container">
           <div class="section-header fade-in">
-            <div class="section-num">04</div>
             <div class="section-header-text">
-              <span class="section-kicker">People</span>
-              <h2 class="section-title">Lab Members</h2>
+              <span class="section-kicker">Board</span>
+              <h2 class="section-title">Lab Board</h2>
             </div>
             <div class="section-header-line"></div>
           </div>
 
-          <!-- data/members.js 에서 자동으로 채워집니다 -->
-          <div id="members-container"></div>
-        </div>
-      </section>
-    </div>
-
-    <!-- NEWS ───────────────────────────────────────────────── -->
-    <div class="page" id="page-news">
-      <section class="section">
-        <div class="container container-narrow">
-          <div class="section-header fade-in">
-            <div class="section-num">05</div>
-            <div class="section-header-text">
-              <span class="section-kicker">News</span>
-              <h2 class="section-title">Latest Updates</h2>
-            </div>
-            <div class="section-header-line"></div>
+          <div class="pub-tabs fade-in" id="board-tabs">
+            <button class="pub-tab active" data-panel="news">News</button>
+            <button class="pub-tab" data-panel="gallery">Gallery</button>
           </div>
 
-          <!-- data/news.js 에서 자동으로 채워집니다 -->
-          <div class="news-timeline" id="news-timeline"></div>
+          <!-- Panel: News -->
+          <div class="board-panel active" id="board-panel-news">
+            <div id="news-container"></div>
+          </div>
+
+          <!-- Panel: Gallery -->
+          <div class="board-panel" id="board-panel-gallery">
+            <div id="gallery-container"></div>
+          </div>
         </div>
       </section>
     </div>
@@ -383,8 +455,9 @@
         <div class="footer-links">
           <a href="#" class="nav-tab" data-target="page-about">About</a>
           <a href="#" class="nav-tab" data-target="page-research">Research</a>
-          <a href="#" class="nav-tab" data-target="page-publications">Publications</a>
           <a href="#" class="nav-tab" data-target="page-members">Members</a>
+          <a href="#" class="nav-tab" data-target="page-publications">Publications</a>
+          <a href="#" class="nav-tab" data-target="page-board">Board</a>
           <a href="#" class="nav-tab" data-target="page-contact">Contact</a>
         </div>
       </div>
@@ -401,9 +474,28 @@
     </svg>
   </button>
 
+  <!-- Gallery Modal -->
+  <div class="gallery-modal" id="gallery-modal" aria-hidden="true">
+    <div class="gallery-modal-backdrop" id="gallery-modal-backdrop"></div>
+    <div class="gallery-modal-dialog">
+      <button class="gallery-modal-close" id="gallery-modal-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="gallery-modal-img-wrap" id="gallery-modal-img-wrap"></div>
+      <div class="gallery-modal-info">
+        <p class="gallery-modal-date" id="gallery-modal-date"></p>
+        <h2 class="gallery-modal-title" id="gallery-modal-title"></h2>
+        <p class="gallery-modal-text" id="gallery-modal-text"></p>
+      </div>
+    </div>
+  </div>
+
   <script src="data/members.js"></script>
   <script src="data/publications.js"></script>
   <script src="data/news.js"></script>
+  <script src="data/gallery.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

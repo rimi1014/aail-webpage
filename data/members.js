@@ -23,14 +23,15 @@ const MEMBERS = {
         note: "ADD · Sep 2025– · Forward Reachability Analysis for Range Safety" },
     ],
     msc: [
-      { initials: "AP", name: "Alim Pyon", note: "Mar 2026–", highlight: true },
+      { initials: "AP", name: "Alim Pyon", note: "Mar 2026–"},
     ],
     bsc: [
-      { initials: "JK", name: "Junho Kim",     note: "Mar 2026–" },
-      { initials: "JK", name: "Jungwon Kim",   note: "Mar 2026–" },
       { initials: "SO", name: "Seungseok Oh",  note: "Nov 2025–" },
       { initials: "JL", name: "Jaeyoung Lee",  note: "Nov 2025–" },
       { initials: "HA", name: "Hyeonseo An",   note: "Nov 2025–" },
+      { initials: "JK", name: "Junho Kim",     note: "Mar 2026–" },
+      { initials: "JK", name: "Jungwon Kim",   note: "Mar 2026–" },
+
     ],
   },
 
