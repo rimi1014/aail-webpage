@@ -76,6 +76,64 @@ window.addEventListener('popstate', e => {
   switchPage(page, false);
 });
 
+// ── MEGA MENU ───────────────────────────────────────────────
+const megaMenu = document.getElementById('mega-menu');
+
+function alignMegaCols() {
+  if (!megaMenu || window.innerWidth < 768) return;
+  const cols    = megaMenu.querySelectorAll('.mega-col');
+  const navItems = navbar.querySelectorAll('.nav-links > li');
+  const inner   = megaMenu.querySelector('.mega-inner');
+  const innerRect = inner.getBoundingClientRect();
+
+  navItems.forEach((item, i) => {
+    if (!cols[i]) return;
+    const r = item.getBoundingClientRect();
+    const cx = r.left + r.width / 2 - innerRect.left;
+    cols[i].style.left = cx + 'px';
+  });
+}
+
+if (megaMenu) {
+  navbar.addEventListener('mouseenter', () => {
+    if (window.innerWidth >= 768) {
+      alignMegaCols();
+      megaMenu.classList.add('open');
+    }
+  });
+  navbar.addEventListener('mouseleave', () => {
+    megaMenu.classList.remove('open');
+  });
+  window.addEventListener('resize', alignMegaCols);
+
+  megaMenu.addEventListener('click', e => {
+    const link = e.target.closest('.mega-link');
+    if (!link) return;
+    e.preventDefault();
+
+    const target = link.dataset.target;
+    if (target) switchPage(target);
+
+    if (link.classList.contains('mega-subtab') && link.dataset.subtab) {
+      switchMemberPanel(link.dataset.subtab);
+    }
+    if (link.classList.contains('mega-boardtab') && link.dataset.subtab) {
+      switchBoardPanel(link.dataset.subtab);
+    }
+    if (link.classList.contains('mega-filtertab') && link.dataset.filter) {
+      const filter = link.dataset.filter;
+      document.querySelectorAll('#page-publications .pub-tab')
+        .forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
+      document.querySelectorAll('.pub-year-group')
+        .forEach(g => g.classList.toggle('hidden', g.dataset.type !== filter));
+      document.querySelectorAll('.pub-item')
+        .forEach(i => i.classList.toggle('hidden', i.dataset.type !== filter));
+    }
+
+    megaMenu.classList.remove('open');
+  });
+}
+
 // ── NAVBAR SCROLL (home page only) ──────────────────────────
 window.addEventListener('scroll', () => {
   const homePage = document.getElementById('page-home');
@@ -783,7 +841,7 @@ initGalleryModal();
 // URL 해시에 따라 올바른 페이지로 이동
 (function handleInitialHash() {
   const hash = window.location.hash.replace('#', '');
-  const validPages = ['about','research','publications','members','board','contact'];
+  const validPages = ['about','research','projects','publications','members','board','contact'];
   if (hash && validPages.includes(hash)) {
     switchPage('page-' + hash, false);
   } else {
