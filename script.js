@@ -81,17 +81,38 @@ const megaMenu = document.getElementById('mega-menu');
 
 function alignMegaCols() {
   if (!megaMenu || window.innerWidth < 768) return;
-  const cols    = megaMenu.querySelectorAll('.mega-col');
-  const navItems = navbar.querySelectorAll('.nav-links > li');
-  const inner   = megaMenu.querySelector('.mega-inner');
+  const cols     = [...megaMenu.querySelectorAll('.mega-col')];
+  const navItems = [...navbar.querySelectorAll('.nav-links > li')];
+  const inner    = megaMenu.querySelector('.mega-inner');
   const innerRect = inner.getBoundingClientRect();
 
-  navItems.forEach((item, i) => {
-    if (!cols[i]) return;
+  // Ideal centers from nav item positions
+  const positions = navItems.map(item => {
     const r = item.getBoundingClientRect();
-    const cx = r.left + r.width / 2 - innerRect.left;
-    cols[i].style.left = cx + 'px';
+    return r.left + r.width / 2 - innerRect.left;
   });
+
+  // Enforce minimum gap between column centers so text never overlaps
+  const MIN_GAP = 155;
+  for (let i = 1; i < positions.length; i++) {
+    if (positions[i] - positions[i - 1] < MIN_GAP) {
+      positions[i] = positions[i - 1] + MIN_GAP;
+    }
+  }
+
+  cols.forEach((col, i) => {
+    if (positions[i] !== undefined) col.style.left = positions[i] + 'px';
+  });
+
+  // Remove old dividers and redraw at midpoints between column centers
+  inner.querySelectorAll('.mega-divider').forEach(d => d.remove());
+  for (let i = 1; i < positions.length; i++) {
+    const mid = (positions[i - 1] + positions[i]) / 2;
+    const div = document.createElement('div');
+    div.className = 'mega-divider';
+    div.style.left = mid + 'px';
+    inner.appendChild(div);
+  }
 }
 
 if (megaMenu) {
@@ -494,6 +515,15 @@ function memberCardHtml(m, avatarKey, defaultRole) {
     ? `<div class="member-interests">${m.interests.map(i =>
         `<span class="member-interest-tag">${i}</span>`).join('')}</div>`
     : '';
+  const nameKrHtml = m.nameKr
+    ? `<span class="member-name-kr">${m.nameKr}</span>`
+    : '';
+  const badgeHtml = m.badge
+    ? `<span class="member-badge">${m.badge}</span>`
+    : '';
+  const emailHtml = m.email
+    ? `<a class="member-email" href="mailto:${m.email}">${m.email}</a>`
+    : '';
   return `
     <div class="member-card ${m.highlight ? 'member-card-highlight' : ''}">
       <div class="member-photo-wrap">
@@ -501,9 +531,10 @@ function memberCardHtml(m, avatarKey, defaultRole) {
         <div class="member-avatar avatar-${avatarKey}"${avatarStyle}>${m.initials}</div>
       </div>
       <div class="member-info">
-        <p class="member-name">${m.name}</p>
-        <p class="member-role">${m.role || defaultRole}</p>
+        <p class="member-name">${m.name}${nameKrHtml}</p>
+        <p class="member-role">${m.role || defaultRole}${badgeHtml}</p>
         ${m.note ? `<p class="member-note">${m.note}</p>` : ''}
+        ${emailHtml}
         ${interestsHtml}
       </div>
     </div>
@@ -563,6 +594,30 @@ function switchMemberPanel(panelId) {
       setTimeout(() => el.classList.add('visible'), i * 70);
     });
   }
+}
+
+// ── ABOUT TABS ────────────────────────────────────────────────
+function switchAboutPanel(panel) {
+  document.querySelectorAll('.about-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.about-tab').forEach(t => t.classList.remove('active'));
+  const target = document.getElementById('about-panel-' + panel);
+  if (target) target.classList.add('active');
+  document.querySelectorAll(`.about-tab[data-panel="${panel}"]`).forEach(t => t.classList.add('active'));
+}
+
+function initAboutTabs() {
+  document.querySelectorAll('.about-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchAboutPanel(tab.dataset.panel));
+  });
+  document.querySelectorAll('.about-subtab').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      switchPage('page-about');
+      navLinks.classList.remove('open');
+      const panel = link.dataset.subtab;
+      setTimeout(() => switchAboutPanel(panel), 60);
+    });
+  });
 }
 
 function initMemberTabs() {
@@ -822,6 +877,66 @@ function renderNewsTeaser() {
   container.innerHTML = `<div class="news-grid">${NEWS.slice(0, 3).map(newsCardHtml).join('')}</div>`;
 }
 
+// ── PROJECTS ──────────────────────────────────────────────────
+function renderProjects(filter) {
+  if (typeof PROJECTS === 'undefined') return;
+  filter = filter || 'ongoing';
+
+  const container = document.getElementById('projects-container');
+  if (!container) return;
+
+  const list = PROJECTS[filter] || [];
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <p class="proj-empty fade-in">No ${filter} projects at this time.</p>`;
+  } else {
+    container.innerHTML = list.map((p, i) => `
+      <div class="proj-card fade-in" style="animation-delay:${i * 60}ms">
+        <div class="proj-card-num">${String(i + 1).padStart(2, '0')}</div>
+        <div class="proj-card-body">
+          <h3 class="proj-card-title">${p.title}</h3>
+          <dl class="proj-meta">
+            <dt>Period</dt><dd>${p.period}</dd>
+            <dt>Funding Agency</dt><dd>${p.agency}</dd>
+            ${p.program  ? `<dt>Program</dt><dd>${p.program}</dd>` : ''}
+            ${p.institution ? `<dt>Institution</dt><dd>${p.institution}</dd>` : ''}
+            ${p.note     ? `<dt>Note</dt><dd>${p.note}</dd>` : ''}
+          </dl>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // re-trigger fade-in observer
+  container.querySelectorAll('.fade-in').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), i * 60);
+  });
+}
+
+function initProjTabs() {
+  document.querySelectorAll('.proj-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderProjects(tab.dataset.filter);
+    });
+  });
+}
+
+// ── COLLABORATORS ─────────────────────────────────────────────
+function renderCollaborators() {
+  if (typeof COLLABORATORS === 'undefined') return;
+  const grid = document.getElementById('collab-grid');
+  if (!grid) return;
+  grid.innerHTML = COLLABORATORS.map(c => {
+    const inner = `<span class="collab-name">${c.name}</span>`;
+    return c.url
+      ? `<a class="collab-chip" href="${c.url}" target="_blank" rel="noopener">${inner}</a>`
+      : `<div class="collab-chip">${inner}</div>`;
+  }).join('');
+}
+
 // ── INITIAL RENDER + PAGE LOAD ────────────────────────────────
 // data/ 파일들의 내용을 DOM에 렌더링한 뒤 초기 페이지를 표시합니다.
 renderResearchGrid();
@@ -829,10 +944,15 @@ renderPublications();
 renderMembers();
 renderNews();
 renderGallery();
+renderProjects('ongoing');
+renderCollaborators();
 
 initPubTabs();
+initProjTabs();
 renderPublicationsTeaser();
 renderNewsTeaser();
+observeFadeIns(document.getElementById('page-home'));
+initAboutTabs();
 initMemberTabs();
 initBoardTabs();
 initPubFilterNav();

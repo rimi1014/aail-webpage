@@ -27,7 +27,8 @@
         <li class="has-dropdown">
           <a href="#" class="nav-tab" data-target="page-about">About</a>
           <ul class="nav-dropdown">
-            <li><a href="#" class="nav-tab" data-target="page-about">About AAIL</a></li>
+            <li><a href="#" class="about-subtab" data-subtab="about">About AAIL</a></li>
+            <li><a href="#" class="about-subtab" data-subtab="courses">Courses</a></li>
           </ul>
         </li>
         <li class="has-dropdown">
@@ -71,7 +72,8 @@
       <div class="mega-inner">
 
         <div class="mega-col">
-          <a href="#" class="nav-tab mega-link" data-target="page-about">About AAIL</a>
+          <a href="#" class="mega-link about-subtab" data-subtab="about">About AAIL</a>
+          <a href="#" class="mega-link about-subtab" data-subtab="courses">Courses</a>
         </div>
 
         <div class="mega-col">
@@ -80,7 +82,7 @@
         </div>
 
         <div class="mega-col">
-          <a href="#" class="mega-link mega-subtab" data-target="page-members" data-subtab="pi">Principal Investigator</a>
+          <a href="#" class="mega-link mega-subtab" data-target="page-members" data-subtab="pi">Professor</a>
           <a href="#" class="mega-link mega-subtab" data-target="page-members" data-subtab="students">Students</a>
           <a href="#" class="mega-link mega-subtab" data-target="page-members" data-subtab="alumni">Alumni</a>
         </div>
@@ -97,7 +99,6 @@
         </div>
 
         <div class="mega-col">
-          <a href="#" class="nav-tab mega-link" data-target="page-contact">Contact AAIL</a>
         </div>
 
       </div>
@@ -115,7 +116,7 @@
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
           <p class="hero-eyebrow">Seoul National University</p>
-          <h1 class="hero-title">Aerospace Autonomy &amp;<br />Intelligence Laboratory</h1>
+          <h1 class="hero-title"><span class="hero-accent">A</span>erospace <span class="hero-accent">A</span>utonomy &amp;<br /><span class="hero-accent">I</span>ntelligence <span class="hero-accent">L</span>ab</h1>
           <p class="hero-sub">AAIL &nbsp;|&nbsp; Department of Aerospace Engineering</p>
           <p class="hero-statement">Safe and Efficient Aerospace Systems under Uncertainty</p>
           <div class="hero-tags">
@@ -217,18 +218,167 @@
             </div>
             <div class="section-header-line"></div>
           </div>
-          <div class="about-text fade-in">
-            <h2 class="about-subtitle">Intelligent Systems for the Future of Aerospace</h2>
-            <p>The <strong>Aerospace Autonomy and Intelligence Laboratory (AAIL)</strong> is a research group within the Department of Aerospace Engineering at Seoul National University, led by Professor Namhoon Cho.</p>
-            <p>We develop the theoretical foundations and practical algorithms for autonomous aerospace systems — spanning guidance &amp; control, machine learning, and intelligent decision-making. Our work bridges mathematical rigor with real-world aerospace engineering challenges.</p>
-            <div class="about-tags">
-              <span class="tag">Control Theory</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Autonomous Systems</span>
-              <span class="tag">Aerospace Engineering</span>
-              <span class="tag">Optimization</span>
-            </div>
+          <!-- About sub-tabs -->
+          <div class="about-tabs fade-in">
+            <button class="about-tab active" data-panel="about">About AAIL</button>
+            <button class="about-tab" data-panel="courses">Courses</button>
           </div>
+
+          <!-- Panel: About AAIL -->
+          <div class="about-panel active" id="about-panel-about">
+
+            <div class="about-intro fade-in">
+              <img src="images/aail_kcikoff.jpg" alt="AAIL Kickoff" class="about-kickoff-img" />
+              <div class="about-text">
+                <h2 class="about-subtitle">Intelligent Systems for the Future of Aerospace</h2>
+                <p>The <strong>Aerospace Autonomy and Intelligence Laboratory (AAIL)</strong> is a research group within the Department of Aerospace Engineering at Seoul National University, led by Professor Namhoon Cho.</p>
+                <p>We develop the theoretical foundations and practical algorithms for autonomous aerospace systems — spanning guidance &amp; control, machine learning, and intelligent decision-making. Our work bridges mathematical rigor with real-world aerospace engineering challenges.</p>
+              </div>
+            </div>
+
+            <div class="about-vision fade-in">
+              <h3 class="about-vision-title">Research Statement</h3>
+              <img src="images/research interest.png" alt="AAIL Research Vision" class="about-vision-img" />
+            </div>
+
+            <div class="legacy-section fade-in">
+              <h3 class="about-vision-title">Legacy of FDCL</h3>
+              <p class="legacy-desc">The Aerospace Autonomy and Intelligence Laboratory (AAIL) represents the third generation at Seoul National University, continuing the Flight Dynamics and Control Laboratory's (FDCL) academic tradition spanning seven decades. The laboratory combines the precision of traditional control engineering with the transformative power of modern computing.</p>
+              <img src="images/legacy.jpg" alt="Legacy of FDCL" class="about-vision-img legacy-img" />
+              <div class="legacy-grid">
+                <div class="legacy-card">
+                  <span class="legacy-gen">1st Generation</span>
+                  <h4 class="legacy-name">Prof. Sang-Kyu Wie</h4>
+                  <p class="legacy-period">Dec 1955 – Feb 1991</p>
+                  <ul class="legacy-edu">
+                    <li>PhD, Seoul National University (1967)</li>
+                    <li>MSc, University of Minnesota (1959)</li>
+                    <li>BSc, Seoul National University (1950)</li>
+                  </ul>
+                </div>
+                <div class="legacy-card">
+                  <span class="legacy-gen">2nd Generation</span>
+                  <h4 class="legacy-name">Prof. Youdan Kim</h4>
+                  <p class="legacy-period">Feb 1992 – Aug 2025</p>
+                  <ul class="legacy-edu">
+                    <li>PhD, Texas A&amp;M University (1991)</li>
+                    <li>MSc, Seoul National University (1985)</li>
+                    <li>BSc, Seoul National University (1983)</li>
+                  </ul>
+                </div>
+                <div class="legacy-card legacy-card-current">
+                  <span class="legacy-gen">3rd Generation</span>
+                  <h4 class="legacy-name">Prof. Namhoon Cho</h4>
+                  <p class="legacy-period">Sep 2025 – Present</p>
+                  <ul class="legacy-edu">
+                    <li>PhD, Seoul National University (2017)</li>
+                    <li>BSc, Seoul National University (2012)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="collab-section fade-in">
+              <h3 class="collab-title">Collaborators</h3>
+              <div class="collab-grid" id="collab-grid"></div>
+            </div>
+
+          </div><!-- /about-panel-about -->
+
+          <!-- Panel: Courses -->
+          <div class="about-panel" id="about-panel-courses">
+
+            <div class="course-uni fade-in">
+              <div class="course-uni-header">
+                <span class="course-uni-badge">SNU</span>
+                <h3 class="course-uni-name">Seoul National University</h3>
+              </div>
+              <div class="course-grid">
+                <div class="course-card">
+                  <span class="course-level">Undergraduate</span>
+                  <h4 class="course-name">Flight Dynamics and Control</h4>
+                  <p class="course-code">M2795.004500</p>
+                  <p class="course-period">Fall 2025</p>
+                </div>
+                <div class="course-card">
+                  <span class="course-level">Graduate</span>
+                  <h4 class="course-name">Theory of Flight Vehicle Guidance and Control</h4>
+                  <p class="course-code">M2795.006900</p>
+                  <p class="course-period">Spring 2026</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="course-uni fade-in">
+              <div class="course-uni-header">
+                <span class="course-uni-badge">CU</span>
+                <h3 class="course-uni-name">Cranfield University</h3>
+              </div>
+
+              <div class="course-program">
+                <h4 class="course-program-title">MSc in Autonomous Vehicle Dynamics and Control</h4>
+                <div class="course-grid">
+                  <div class="course-card">
+                    <h4 class="course-name">UAS Dynamics and Control</h4>
+                    <p class="course-period">2024–2025</p>
+                    <span class="course-role">Module Lecturer</span>
+                  </div>
+                  <div class="course-card">
+                    <h4 class="course-name">Modelling and Simulation</h4>
+                    <p class="course-period">2024–2025</p>
+                    <span class="course-role">Module Instructor</span>
+                  </div>
+                  <div class="course-card">
+                    <h4 class="course-name">Autonomous Vehicle Control Systems</h4>
+                    <p class="course-period">2024–2025</p>
+                    <span class="course-role">Module Lecturer</span>
+                  </div>
+                  <div class="course-card">
+                    <h4 class="course-name">Sensor Fusion</h4>
+                    <p class="course-period">2021–2022, 2022–2023</p>
+                    <span class="course-role">Module Lecturer</span>
+                  </div>
+                  <div class="course-card">
+                    <h4 class="course-name">Guidance and Navigation for Autonomous Systems</h4>
+                    <p class="course-period">2022–2023, 2023–2024, 2024–2025</p>
+                  </div>
+                  <div class="course-card">
+                    <h4 class="course-name">Group Design Project</h4>
+                    <p class="course-period">2020–2021, 2021–2022, 2024–2025</p>
+                    <span class="course-role">Team Supervisor</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="course-program">
+                <h4 class="course-program-title">MSc in Sensors and Communication</h4>
+                <div class="course-grid">
+                  <div class="course-card">
+                    <h4 class="course-name">Sensor Resource Management</h4>
+                    <p class="course-period">2025</p>
+                    <span class="course-role">Module Lecturer</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="course-program">
+                <h4 class="course-program-title">Short Courses</h4>
+                <div class="course-grid">
+                  <div class="course-card">
+                    <h4 class="course-name">Kalman Filtering, Sensor Fusion, and Target Tracking</h4>
+                    <p class="course-period">October 2022</p>
+                    <span class="course-role">ADD</span>
+                  </div>
+                  <div class="course-card">
+                    <h4 class="course-name">Optimal Control, Guidance for Autonomous Systems</h4>
+                    <p class="course-period">April 2023</p>
+                    <span class="course-role">ADD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /about-panel-courses -->
 
         </div>
       </section>
@@ -276,15 +426,13 @@
 
           <!-- Panel: PI -->
           <div class="member-panel active" id="panel-pi">
+
+            <!-- Profile card -->
             <div class="pi-profile fade-in">
               <div class="pi-profile-card">
                 <div class="pi-avatar">
-                  <img
-                    src="images/ncho.jpg"
-                    alt="Prof. Namhoon Cho"
-                    class="pi-photo"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-                  />
+                  <img src="images/ncho.jpg" alt="Prof. Namhoon Cho" class="pi-photo"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
                   <div class="pi-avatar-initials">NC</div>
                 </div>
                 <h2 class="pi-name">Namhoon Cho</h2>
@@ -318,41 +466,73 @@
                   </a>
                 </div>
               </div>
-              <div class="pi-bio">
-                <div class="pi-bio-block">
-                  <h4 class="pi-bio-heading">Current Position</h4>
-                  <p>Assistant Professor, Department of Aerospace Engineering, Seoul National University. Affiliated with the Artificial Intelligence Institute and Institute of Advanced Aerospace Technology.</p>
-                </div>
-                <div class="pi-bio-block">
-                  <h4 class="pi-bio-heading">Research Focus</h4>
-                  <p>Control-theoretic design of optimisation algorithms, robust adaptive control with online model learning, data-driven safe control frameworks, learning-enabled control with safety assurance, and automated control engineering.</p>
-                </div>
-                <div class="pi-bio-block">
-                  <h4 class="pi-bio-heading">Professional Experience</h4>
-                  <ul class="pi-bio-list">
-                    <li>Lecturer in Control and Optimisation, Cranfield University (2024–2025)</li>
-                    <li>Research Fellow (75th Anniversary Fellowship), Cranfield University (2021–2024)</li>
-                    <li>Senior Researcher, Agency for Defense Development (2019–2020)</li>
-                    <li>Postdoctoral Fellow, Seoul National University (2017–2019)</li>
-                  </ul>
-                </div>
-                <div class="pi-bio-block">
-                  <h4 class="pi-bio-heading">Education</h4>
-                  <ul class="pi-bio-list">
-                    <li>PhD, Mechanical and Aerospace Engineering, Seoul National University (2012–2017)<br /><span class="pi-bio-note">Dissertation: Nonlinear Guidance Law for 3D Path-Following Using Differential Geometry</span></li>
-                    <li>BSc, Mechanical and Aerospace Engineering, Seoul National University (2009–2012)</li>
-                  </ul>
-                </div>
-                <div class="pi-bio-block">
-                  <h4 class="pi-bio-heading">Honors &amp; Awards</h4>
-                  <ul class="pi-bio-list">
-                    <li>Fellow of Advance HE (2025)</li>
-                    <li>Cranfield University 75th Anniversary Fellowship</li>
-                    <li>Outstanding Doctoral Dissertation Award, Seoul National University (2017)</li>
-                    <li>Summa Cum Laude, Seoul National University (2012)</li>
-                  </ul>
+              <div class="pi-intro">
+                <p class="pi-intro-bio">Namhoon Cho is Assistant Professor in the Department of Aerospace Engineering at Seoul National University, South Korea since September 2025. He received his BSc and PhD degrees in Mechanical and Aerospace Engineering from Seoul National University, South Korea, in August 2012 and February 2017, respectively. Previously, he was Lecturer in Control and Optimisation in the Centre for Assured and Connected Autonomy at Cranfield University, United Kingdom from November 2024 to August 2025. He was a research fellow at Cranfield University from January 2021 to November 2024 with the award of a Cranfield 75th Anniversary Fellowship to pursue research on AI for Exploitation of Data-Driven Approach in Control for Aerospace Systems. He was a senior researcher in the 1st R&amp;D Institute, Agency for Defense Development, South Korea, from March 2019 to December 2020, where he was involved in research and development of guidance and control systems for missiles and developed design tools based on optimisation techniques. He was a research fellow in the Department of Mechanical and Aerospace Engineering, Seoul National University, South Korea, from March 2017 to February 2019. He develops constructive methodologies to design control algorithms for aerospace and robotic systems.</p>
+                <div class="pi-intro-interests">
+                  <p class="pi-intro-interests-label">Research Interests</p>
+                  <p class="pi-intro-interests-text">Control-theoretic design of optimisation algorithms, robust adaptive control with online model learning, data-driven safe control frameworks, learning-enabled control with safety assurance, and automated control engineering.</p>
                 </div>
               </div>
+            </div>
+
+            <!-- Sections: reference-style layout -->
+            <div class="pi-sections">
+
+              <div class="pi-section fade-in">
+                <div class="pi-section-label">Current<br />Position</div>
+                <ul class="pi-section-list">
+                  <li>Assistant Professor, Aerospace Autonomy and Intelligence Laboratory, Department of Aerospace Engineering, College of Engineering, Seoul National University</li>
+                  <li><em>Affiliation:</em> Artificial Intelligence Institute; Institute of Advanced Aerospace Technology</li>
+                </ul>
+              </div>
+
+              <div class="pi-section fade-in">
+                <div class="pi-section-label">Education</div>
+                <ul class="pi-section-list">
+                  <li>(2012.9~2017.2) Ph.D. in Mechanical and Aerospace Engineering, Seoul National University</li>
+                  <li>(2009.3~2012.8) B.S. in Mechanical and Aerospace Engineering, Seoul National University</li>
+                  <li>(2007.3~2009.2) Seoul Science High School</li>
+                </ul>
+              </div>
+
+              <div class="pi-section fade-in">
+                <div class="pi-section-label">Experience</div>
+                <ul class="pi-section-list">
+                  <li>(2025.9.1~Present) Assistant Professor, Department of Aerospace Engineering, Seoul National University</li>
+                  <li>(2025.9.1~Present) Visiting Academic, Centre for Assured and Connected Autonomy, Cranfield University</li>
+                  <li>(2024.11.29~2025.8.12) Lecturer in Control and Optimisation, Centre for Assured and Connected Autonomy, Cranfield University</li>
+                  <li>(2024.10.25~Present) Academic Advisor, Mechanical AI, Inc.</li>
+                  <li>(2021.1.18~2024.11.28) Research Fellow, Cranfield University</li>
+                  <li>(2019.3.1~2020.12.31) Senior Researcher, Agency for Defense Development</li>
+                  <li>(2017.12.1~2019.2.28) Postdoctoral Research Fellow, Seoul National University</li>
+                  <li>(2017.3.1~2018.8.31) Researcher, Automation and Systems Research Institute, Seoul National University</li>
+                  <li>(2015.11.14~2016.4.28) Visiting Research Student, Cranfield University</li>
+                  <li>(2008.8.19~2008.8.28) The 2nd International Olympiad on Astronomy and Astrophysics (IOAA)</li>
+                  <li>(2007.11.21~2007.11.29) The 3rd Asian-Pacific Astronomy Olympiad (APAO)</li>
+                </ul>
+              </div>
+
+              <div class="pi-section fade-in">
+                <div class="pi-section-label">Honours &amp;<br />Awards &amp;<br />Scholarships</div>
+                <ul class="pi-section-list">
+                  <li>Excellent Reviewer for JGCD (2025)</li>
+                  <li>Fellow of Advance HE (FHEA) (2025.5)</li>
+                  <li>Associate Fellow of Advance HE (AFHEA) (2024.11)</li>
+                  <li>Cranfield 75th Anniversary Fellowship (2021.1)</li>
+                  <li>Outstanding Doctoral Dissertation Award, Seoul National University (2017.2)</li>
+                  <li>Summa Cum Laude Graduate, Seoul National University (2012.8)</li>
+                  <li>STEM Honor Society Membership</li>
+                  <li>Academic Excellence Scholarship</li>
+                </ul>
+              </div>
+
+              <div class="pi-section fade-in">
+                <div class="pi-section-label">Media</div>
+                <ul class="pi-section-list">
+                  <li>(2021.6) Early Career Researcher Interview, "Unified Design Frameworks for Control and Estimation with Aerospace Applications," Mechanical Engineering and Robotics Research Information Center, Written Interview <em>(in Korean)</em></li>
+                </ul>
+              </div>
+
             </div>
           </div>
 
@@ -525,35 +705,12 @@
             <div class="section-header-line"></div>
           </div>
 
-          <p class="projects-subtitle fade-in">Ongoing and completed research programs at AAIL.</p>
-
-          <div class="projects-grid">
-
-            <div class="project-card fade-in">
-              <div class="project-card-top">
-                <h3 class="project-title">Placeholder Project 1</h3>
-                <span class="project-status ongoing">ONGOING</span>
-              </div>
-              <p class="project-agency"><span class="project-meta-label">Agency:</span> TBD</p>
-            </div>
-
-            <div class="project-card fade-in">
-              <div class="project-card-top">
-                <h3 class="project-title">Placeholder Project 2</h3>
-                <span class="project-status ongoing">ONGOING</span>
-              </div>
-              <p class="project-agency"><span class="project-meta-label">Agency:</span> TBD</p>
-            </div>
-
-            <div class="project-card fade-in">
-              <div class="project-card-top">
-                <h3 class="project-title">Placeholder Project 3</h3>
-                <span class="project-status completed">COMPLETED</span>
-              </div>
-              <p class="project-agency"><span class="project-meta-label">Agency:</span> TBD</p>
-            </div>
-
+          <div class="proj-tabs-wrap fade-in">
+            <button class="proj-tab active" data-filter="ongoing">Ongoing Projects</button>
+            <button class="proj-tab" data-filter="completed">Completed Projects</button>
           </div>
+
+          <div id="projects-container"></div>
         </div>
       </section>
     </div>
@@ -609,6 +766,8 @@
   </div>
 
   <script src="data/members.js"></script>
+  <script src="data/projects.js"></script>
+  <script src="data/collaborators.js"></script>
   <script src="data/publications.js"></script>
   <script src="data/news.js"></script>
   <script src="data/gallery.js"></script>

@@ -17,21 +17,20 @@ const MEMBERS = {
   // ── Seoul National University ──────────────────────────────
   snu: {
     phd: [
-      { initials: "SJ", name: "Seongmin Jeong",  note: "ROKA · Mar 2026–" },
-      { initials: "JK", name: "Jaewon Kim",       note: "Mar 2026–" },
-      { initials: "SK", name: "Seunghoon Kang",   role: "PhD Student (Part-time)",
+      { initials: "SJ", name: "Seongmin Jeong",  nameKr: "정성민", email: "jsm330@snu.ac.kr",  note: "ROKA · Mar 2026–", badge: "Lab Leader" },
+      { initials: "JK", name: "Jaewon Kim",       nameKr: "김재원", email: "vgkjw@snu.ac.kr",   note: "Mar 2026–" },
+      { initials: "SK", name: "Seunghoon Kang",   nameKr: "강승훈", email: "",                  role: "PhD Student (Part-time)",
         note: "ADD · Sep 2025– · Forward Reachability Analysis for Range Safety" },
     ],
     msc: [
-      { initials: "AP", name: "Alim Pyon", note: "Mar 2026–"},
+      { initials: "AP", name: "Alim Pyon", nameKr: "편아림", email: "alimpyon@snu.ac.kr", note: "Mar 2026–", photo: "images/members/alimpyon.jpg" },
     ],
     bsc: [
-      { initials: "SO", name: "Seungseok Oh",  note: "Nov 2025–" },
-      { initials: "JL", name: "Jaeyoung Lee",  note: "Nov 2025–" },
-      { initials: "HA", name: "Hyeonseo An",   note: "Nov 2025–" },
-      { initials: "JK", name: "Junho Kim",     note: "Mar 2026–" },
-      { initials: "JK", name: "Jungwon Kim",   note: "Mar 2026–" },
-
+      { initials: "SO", name: "Seungseok Oh",  nameKr: "오승석", email: "littlestein@snu.ac.kr",  note: "Nov 2025–" },
+      { initials: "JL", name: "Jaeyoung Lee",  nameKr: "이재영", email: "dlwodud0206@snu.ac.kr",  note: "Nov 2025–" },
+      { initials: "HA", name: "Hyeonseo An",   nameKr: "안현서", email: "anhyeonseo@snu.ac.kr",   note: "Nov 2025–" },
+      { initials: "JK", name: "Junho Kim",     nameKr: "김준호", email: "junho9812@snu.ac.kr",    note: "Mar 2026–" },
+      { initials: "JK", name: "Jungwon Kim",   nameKr: "김중원", email: "kimjw624@snu.ac.kr",     note: "Mar 2026–" },
     ],
   },
 
