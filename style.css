@@ -427,9 +427,10 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg,
-    rgba(10,22,40,.85) 0%,
-    rgba(17,34,68,.6) 50%,
-    rgba(74,159,212,.15) 100%);
+    rgba(10,22,40,.90) 0%,
+    rgba(14,28,58,.65) 40%,
+    rgba(0,100,180,.18) 75%,
+    rgba(0,180,210,.13) 100%);
   pointer-events: none;
 }
 
@@ -443,12 +444,12 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-eyebrow {
-  font-size: .875rem;
-  font-weight: 500;
-  letter-spacing: .2em;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   opacity: 0;
   animation: heroFade 0.8s 0.2s forwards;
 }
@@ -467,7 +468,7 @@ img { max-width: 100%; display: block; }
 
 .hero-sub {
   font-size: 1rem;
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.55);
   letter-spacing: .06em;
   margin-bottom: 20px;
   opacity: 0;
@@ -477,6 +478,7 @@ img { max-width: 100%; display: block; }
 .hero-statement {
   font-size: 1.1rem;
   font-weight: 300;
+  font-style: italic;
   color: rgba(255,255,255,.80);
   letter-spacing: .03em;
   margin-bottom: 16px;
@@ -2268,17 +2270,17 @@ a.pub-title:hover { color: var(--blue); text-decoration: underline; }
 /* ── HOMEPAGE ATMOSPHERIC GRADIENT (space → earth descent) ──── */
 #page-home .teaser-section.teaser-research {
   background-color: #0E1C2E;
-  background-image: linear-gradient(to bottom, #0E1C2E 0%, #142840 100%);
+  background-image: linear-gradient(to bottom, #0E1C2E 0%, #0D1E38 100%);
   background-size: auto;
 }
 #page-home .teaser-section.teaser-publications {
-  background-color: #142840;
-  background-image: linear-gradient(to bottom, #142840 0%, #1A3860 100%);
+  background-color: #0D1E38;
+  background-image: linear-gradient(to bottom, #0D1E38 0%, #0E2244 100%);
   background-size: auto;
 }
 #page-home .teaser-section.teaser-news {
-  background-color: #1A3860;
-  background-image: linear-gradient(to bottom, #1A3860 0%, #2060A8 50%, #183C70 100%);
+  background-color: #0E2244;
+  background-image: linear-gradient(to bottom, #0E2244 0%, #122A52 50%, #0E2040 100%);
   background-size: auto;
 }
 
