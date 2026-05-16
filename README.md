@@ -4,9 +4,9 @@ Aerospace Autonomy and Intelligence Laboratory — Seoul National University
 
 ---
 
-## 논문 업데이트 (교수님용)
+## 논문 업데이트
 
-### 방법 A — GitHub 웹사이트에서 직접 편집 (git 설치 불필요)
+### 방법 A — GitHub 웹사이트에서 직접 편집
 
 1. GitHub에 로그인
 2. `data/publications.bib` 파일 클릭
