@@ -4,15 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AAIL — Aerospace Autonomy and Intelligence Laboratory</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <meta property="og:title" content="AAIL:Aerospace Autonomy and Intelligence Laboratory" />
+
+  <!-- SEO -->
+  <meta name="description" content="The Aerospace Autonomy and Intelligence Laboratory (AAIL) at Seoul National University develops theory and algorithms for autonomous aerospace systems — guidance &amp; control, machine learning, and safe decision-making. Led by Prof. Namhoon Cho." />
+  <meta name="keywords" content="aerospace autonomy, autonomous systems, guidance control, control barrier functions, machine learning control, SNU, Seoul National University, Namhoon Cho" />
+  <meta name="author" content="AAIL, Seoul National University" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AAIL — Aerospace Autonomy and Intelligence Laboratory" />
   <meta property="og:description" content="Research group at Seoul National University's Department of Aerospace Engineering, led by Professor Namhoon Cho." />
   <meta property="og:image" content="https://rimi1014.github.io/aail-webpage/images/og-image.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rimi1014.github.io/aail-webpage/" />
+  <meta property="og:site_name" content="AAIL" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AAIL — Aerospace Autonomy and Intelligence Laboratory" />
+  <meta name="twitter:description" content="Research group at Seoul National University's Department of Aerospace Engineering, led by Professor Namhoon Cho." />
+  <meta name="twitter:image" content="https://rimi1014.github.io/aail-webpage/images/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Aerospace Autonomy and Intelligence Laboratory (AAIL)",
+    "alternateName": "AAIL",
+    "url": "https://rimi1014.github.io/aail-webpage/",
+    "description": "Research group at Seoul National University developing theory and algorithms for autonomous aerospace systems.",
+    "parentOrganization": {
+      "@type": "EducationalOrganization",
+      "name": "Seoul National University",
+      "url": "https://www.snu.ac.kr"
+    },
+    "member": {
+      "@type": "Person",
+      "name": "Namhoon Cho",
+      "jobTitle": "Assistant Professor",
+      "affiliation": "Seoul National University"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -227,7 +266,7 @@
           <div class="about-panel active" id="about-panel-about">
 
             <div class="about-intro fade-in">
-              <img src="images/aail_kcikoff.jpg" alt="AAIL Kickoff" class="about-kickoff-img" />
+              <img src="images/aail_kcikoff.jpg" alt="AAIL Kickoff" class="about-kickoff-img" loading="lazy" />
               <div class="about-text">
                 <h2 class="about-subtitle">Intelligent Systems for the Future of Aerospace</h2>
                 <p>The <strong>Aerospace Autonomy and Intelligence Laboratory (AAIL)</strong> is a research group within the Department of Aerospace Engineering at Seoul National University, led by Professor Namhoon Cho.</p>
@@ -237,13 +276,13 @@
 
             <div class="about-vision fade-in">
               <h3 class="about-vision-title">Research Statement</h3>
-              <img src="images/research interest.png" alt="AAIL Research Vision" class="about-vision-img" />
+              <img src="images/research interest.png" alt="AAIL Research Vision" class="about-vision-img" loading="lazy" />
             </div>
 
             <div class="legacy-section fade-in">
               <h3 class="about-vision-title">Legacy of FDCL</h3>
               <p class="legacy-desc">The Aerospace Autonomy and Intelligence Laboratory (AAIL) represents the third generation at Seoul National University, continuing the Flight Dynamics and Control Laboratory's (FDCL) academic tradition spanning seven decades. The laboratory combines the precision of traditional control engineering with the transformative power of modern computing.</p>
-              <img src="images/legacy.jpg" alt="Legacy of FDCL" class="about-vision-img legacy-img" />
+              <img src="images/legacy.jpg" alt="Legacy of FDCL" class="about-vision-img legacy-img" loading="lazy" />
               <div class="legacy-grid">
                 <div class="legacy-card">
                   <span class="legacy-gen">1st Generation</span>
@@ -430,7 +469,7 @@
             <div class="pi-profile fade-in">
               <div class="pi-profile-card">
                 <div class="pi-avatar">
-                  <img src="images/ncho.jpg" alt="Prof. Namhoon Cho" class="pi-photo"
+                  <img src="images/ncho.jpg" alt="Prof. Namhoon Cho" class="pi-photo" loading="lazy"
                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
                   <div class="pi-avatar-initials">NC</div>
                 </div>

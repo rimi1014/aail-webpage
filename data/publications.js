@@ -1,17 +1,8 @@
 // ══════════════════════════════════════════════════════════════
-//  PUBLICATIONS DATA
-//  논문 추가는 이 파일만 수정하면 됩니다.
-//
-//  각 논문 필드:
-//    type    : "journal" | "conference" | "preprint"
-//    year    : 연도 문자열 (예: "2026"). Preprint는 "Preprints" 로 작성.
-//    title   : 논문 제목
-//    authors : 저자 목록 (약식)
-//    venue   : 학술지/학회명. 학술지명은 <em>태그</em>로 감싸기.
-//    url     : (선택) 논문 링크. DOI 예시: "https://doi.org/10.1109/TAC.2017.XXXXXXX"
-//              입력 안 하면 Google Scholar 검색으로 자동 연결됨.
-//
-//  ⚠️  최신 논문이 위에 오도록 추가하세요.
+//  PUBLICATIONS DATA — AUTO-GENERATED from data/publications.bib
+//  ⚠️  이 파일을 직접 수정하지 마세요.
+//  논문 추가/수정은 data/publications.bib 파일을 편집하세요.
+//  변경 후 update.bat (Windows) 또는 update.sh (Mac/Linux) 실행.
 // ══════════════════════════════════════════════════════════════
 
 const PUBLICATIONS = [
